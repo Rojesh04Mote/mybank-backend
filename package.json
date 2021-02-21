@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "husky": {
+        "pre-commit": "pretty && linting"
+    },
     "dependencies": {
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
@@ -18,8 +21,5 @@
         "husky": "4",
         "nodemon": "^2.0.7",
         "prettier": "^2.2.1"
-    },
-    "husky": {
-        "pre-commit": "pretty && linting"
     }
 }
