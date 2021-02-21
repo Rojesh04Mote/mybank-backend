@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "husky": {
-        "pre-commit": "pretty && linting"
-    },
     "dependencies": {
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
@@ -14,12 +11,17 @@
     },
     "scripts": {
         "start": "nodemon src/index.js",
-        "pretty": "prettier **/*.js --tab-width 4 --no-semi false --single-quote true  --trailing-comma true",
+        "pretty": "prettier **/*.js --tab-width 4 --no-semi false --single-quote true  --trailing-comma es5",
         "linting": "eslint **/*.js --fix"
     },
     "devDependencies": {
         "husky": "4",
         "nodemon": "^2.0.7",
         "prettier": "^2.2.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn pretty && yarn linting"
+        }
     }
 }
