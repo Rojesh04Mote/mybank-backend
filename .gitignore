@@ -4,3 +4,4 @@ node_modules
 .eslintrc
 
 .env
+yarn-error.log
