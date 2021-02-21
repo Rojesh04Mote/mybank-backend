@@ -11,10 +11,11 @@
     },
     "scripts": {
         "start": "nodemon src/index.js",
-        "pretty": "prettier **/*.js --tab-width 4 --no-semi false --single-quote true  --trailing-comma es5",
-        "linting": "eslint **/*.js --fix"
+        "pretty": "prettier --tab-width 4 --single-quote --trailing-comma es5 'src/**/*.js'",
+        "linting": "eslint --fix src/**/*.js "
     },
     "devDependencies": {
+        "eslint": "^7.20.0",
         "husky": "4",
         "nodemon": "^2.0.7",
         "prettier": "^2.2.1"
