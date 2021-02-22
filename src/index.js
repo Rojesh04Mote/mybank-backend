@@ -1,10 +1,14 @@
 const express = require('express');
+
 const app = express();
 const cors = require('cors');
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+
+const bankRoutes = require('./routes/bank.routes');
 
 dotenv.config();
+app.use(express.json());
 app.use(cors());
 
 // eslint-disable-next-line no-undef
@@ -25,3 +29,5 @@ mongoose.connect(URI, dbParams, () => {
 app.listen(PORT, () => {
     console.log(`Listening to port ${PORT}`);
 });
+
+app.use('/bank', bankRoutes);
