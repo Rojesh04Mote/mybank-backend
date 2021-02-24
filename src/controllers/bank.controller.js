@@ -36,11 +36,20 @@ async function addData(req, res) {
 }
 
 function updateData(req, res) {
-    res.json({ message: 'updating data' });
+    const { _id, ...rest } = req.body;
+    Bank.findByIdAndUpdate(_id, {
+        ...rest,
+    })
+        .then(() => res.json({ message: 'Data updated succesfully' }))
+        .catch((error) => res.json({ error: 'some error occured' }));
 }
 
 function deleteData(req, res) {
-    res.json({ message: 'deleting data' });
+    const { id } = req.params;
+
+    Bank.findByIdAndDelete(id).then(() =>
+        res.json({ message: 'Document deleted succesfully!' })
+    );
 }
 
 module.exports = {
